@@ -1,9 +1,14 @@
 const countries = ["Argentina", "Brazil", "Chile", "Zambia", "Uganda", "Malawi", "Rwanda", "Ireland", "Switzerland"];
 const flags = ["🇦🇷", "🇧🇷", "🇨🇱", "🇿🇲", "🇺🇬", "🇲🇼", "🇷🇼", "🇮🇪", "🇨🇭"];
 
-document.querySelector('.Country').innerHTML = countries
-document.querySelector('.flag').innerHTML = flags
 
+countries.forEach((element, index) => {
+    const emoji = flags[index];
+
+    const displayFruits = document.createElement("ul");
+    displayFruits.innerHTML = `${element} ${emoji}`;
+    document.body.appendChild(displayFruits);
+})
 
 
 
