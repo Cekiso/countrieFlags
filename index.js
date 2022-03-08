@@ -6,6 +6,8 @@ const countries = ["Argentina", "Brazil", "Chile", "Zambia", "Uganda", "Malawi",
 const flags = ["🇦🇷", "🇧🇷", "🇨🇱", "🇿🇲", "🇺🇬", "🇲🇼", "🇷🇼", "🇮🇪", "🇨🇭"];
 
 countries.sort((a, b) => a.localeCompare(b));
+
+//The forEach will call the function for each element in the array
 countries.forEach((element, index) => {
     const emoji = flags[index];
 
@@ -18,8 +20,7 @@ countries.forEach((element, index) => {
 
 function countrieBox() {
     let flag = 'No flag selected'
-    const boxvalue = document.getElementById("CountryName").value;
-    countries.push(boxvalue);
+
 
     const select = document.getElementById("countrieFlags");
     // let value = select.options[select.selectedIndex].value;
@@ -28,9 +29,10 @@ function countrieBox() {
         flag = select.item(select.selectedIndex).textContent;
     }
 
-
+    const boxvalue = document.getElementById("CountryName").value;
+    countries.push(boxvalue);
     const displayCountry = document.createElement("ul");
-    displayCountry.innerHTML = boxvalue;
+    displayCountry.innerHTML = boxvalue + flag;
 
 
     document.body.appendChild(displayCountry);
