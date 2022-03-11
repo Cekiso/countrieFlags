@@ -5,6 +5,12 @@ const newValue = document.querySelector('.newValue');
 const countries = ["Argentina", "Brazil", "Chile", "Zambia", "Uganda", "Malawi", "Rwanda", "Ireland", "Switzerland"];
 const flags = ["🇦🇷", "🇧🇷", "🇨🇱", "🇿🇲", "🇺🇬", "🇲🇼", "🇷🇼", "🇮🇪", "🇨🇭"];
 
+const message = document.querySelector('.message')
+
+// var emojiRegex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
+
+
+
 countries.sort((a, b) => a.localeCompare(b));
 
 //The forEach will call the function for each element in the array
@@ -19,25 +25,26 @@ countries.forEach((element, index) => {
 
 
 function countrieBox() {
-    let flag = 'No flag selected'
 
+    const regex = /[\uD83C][\uDDE6-\uDDFF][\uD83C][\uDDE6-\uDDFF]/;
 
-    const select = document.getElementById("countrieFlags");
-    // let value = select.options[select.selectedIndex].value;
+    const countrieFlags = document.querySelector('.countrieFlags').value;
+    flags.push(countrieFlags);
 
-    if (select.selectedIndex > 0) {
-        flag = select.item(select.selectedIndex).textContent;
-    }
-
+    let result = countrieFlags(regex)
     const boxvalue = document.getElementById("CountryName").value;
     countries.push(boxvalue);
     const displayCountry = document.createElement("ul");
-    displayCountry.innerHTML = boxvalue + flag;
+    displayCountry.innerHTML = boxvalue + countrieFlags;
 
 
     document.body.appendChild(displayCountry);
 
+
     console.log(countries);
+    console.log(countrieFlags);
+    console.log(result);
+
 
 
 }
